@@ -1,0 +1,9 @@
+<div class="contents row">
+  <%= form_for @tweet do |f| %>
+    <h4>
+      編集する
+    </h4>
+    <%= f.text_field :text %>
+    <a class="waves-effect waves-light btn #212121 grey darken-2"><%= f.submit "SEND" %></a>
+  <% end %>
+</div>

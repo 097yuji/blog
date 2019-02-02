@@ -1,0 +1,20 @@
+  <div class="contents row #f5f5f5 grey lighten-2"" >
+    <h4><%= @nickname %>さんの投稿一覧</h4>
+    <div class="divider #212121 grey darken-1"></div>
+      <div class="section">
+        <% @tweets.each do |tweet| %>
+          <%= simple_format(tweet.text) %>
+
+          <% if user_signed_in? && current_user.id == tweet.user_id %>
+
+            <div class="more_list">
+              <a class="waves-effect waves-light btn #212121 grey darken-2"><%= button_to '削除', "/tweets/#{tweet.id}", method: :delete %></a>
+              <a class="waves-effect waves-light btn #212121 grey darken-2"><%= button_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a>
+
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+     <br><div class="#ffffff white" <%= paginate(@tweets) %> >
+     </div>
+  </div>

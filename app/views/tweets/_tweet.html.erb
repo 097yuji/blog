@@ -1,0 +1,21 @@
+  <div class="content_post #f5f5f5 grey lighten-2" >
+    <div class="divider #212121 grey darken-1"></div>
+      <div class="section">
+        <div class="name">
+        <h5><a class="black-text" href="/users/<%= tweet.user_id %>">
+            <%= tweet.user.nickname %>
+          </a></h5>
+        <%= simple_format(tweet.text) %>
+      </div>
+    </div>
+      <div class="more">
+        <ul class="more_list">
+         <% if user_signed_in? && current_user.id == tweet.user_id %>
+
+              <a class="waves-effect waves-light btn #212121 grey darken-2"><%= button_to '削除', "/tweets/#{tweet.id}", method: :delete %></a>
+            <a class="waves-effect waves-light btn #212121 grey darken-2"><%= button_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a>
+
+         <% end %>
+        </ul>
+  </div>
+</div>
